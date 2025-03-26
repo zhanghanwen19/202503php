@@ -65,8 +65,6 @@ header{
 	color:white;
 	font-size: 18px;
 }
-
-
 .main_visual img
 {	
 	width: 100%;
@@ -210,6 +208,5 @@ footer{
 	font-size: 12px;
 }
 .footer_logo{
-	width: 570px;
-	
+	width: 570px;	
 }
