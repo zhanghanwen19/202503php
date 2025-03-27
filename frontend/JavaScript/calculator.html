@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        table {
+            border: 10px;
+            margin: auto;
+        }
+
+        td {
+            border: 2px solid black; 
+            text-align: center;
+            /*单元格内容居中*/
+            padding: 20px;
+            /*内边距*/
+            cursor: pointer;
+            /* 鼠标悬停时显示手型光标 */
+        }
+
+        td:hover {
+            background-color: #f0f0f0;
+            /* 鼠标悬停时的背景色 */
+        }
+
+        td:active {
+            background-color: #d0d0d0;
+            /* 点击时的背景色 */
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="4" id="result"></td>
+        </tr>
+        <tr>
+            <td onclick="appendresult('7')">7</td>
+            <td onclick="appendresult('8')">8</td>
+            <td onclick="appendresult('9')">9</td>
+            <td onclick="appendresult('+')">+</td>
+        </tr>
+        <tr>
+            <td onclick="appendresult('4')">4</td>
+            <td onclick="appendresult('5')">5</td>
+            <td onclick="appendresult('6')">6</td>
+            <td onclick="appendresult('-')">-</td>
+        </tr>
+        <tr>
+            <td onclick="appendresult('1')">1</td>
+            <td onclick="appendresult('2')">2</td>
+            <td onclick="appendresult('3')">3</td>
+            <td onclick="appendresult('*')">*</td>
+        </tr>
+        <tr>
+            <td onclick="appendresult('0')">0</td>
+            <td id="clear" onclick="clearall()">c</td>
+            <td onclick="caculate()">=</td>
+            <td onclick="appendresult('/')">/</td>
+        </tr>
+    </table>
+</body>
+<script>
+    var inputment = ""; //输入的内容
+    function appendresult(value) {
+        // 判断value是数字还是符号
+        if (value == "+" || value == "-" || value == "*" || value == "/") {
+            // 检查最后一个字符是否为运算符
+            if (inputment.length > 0 && (inputment[inputment.length - 1] == "+" ||
+                inputment[inputment.length - 1] == "-" ||
+                inputment[inputment.length - 1] == "*" ||
+                inputment[inputment.length - 1] == "/")) {
+                return; // 如果是运算符，则不添加新的运算符，return不进行任何操作
+            }
+            inputment += value; // 添加新的运算符
+        } else {
+            // 如果是数字，直接添加
+            inputment += value;
+        }
+
+        update();
+    }
+
+    function caculate() {
+        var result = eval(inputment);
+        inputment = result.toString(); //更新全局变量
+        update();
+    }
+
+    function update() {
+        document.getElementById("result").innerText = inputment || "0";
+    }
+
+    function clearall() {
+        document.getElementById("result").innerText = "";
+        inputment = "";
+    }
+</script>
+</body>
+</html>
