@@ -1,0 +1,131 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.timer-box, .calculate-bmi {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#bmi-result {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+h1 {
+    text-align: center; /* 标题居中 */
+    color: #333; /* 标题颜色 */
+}
+.todo-input{
+    text-align: center;
+}
+#todo-input {
+    width: 300px; /* 输入框宽度 */
+    padding: 10px; /* 内部填充 */
+    margin-right: 10px; /* 右边距 */
+    border: 1px solid #ccc; /* 边框样式 */
+    border-radius: 4px; /* 圆角边框 */
+    font-size: 16px; /* 字体大小 */
+}
+
+#add-btn {
+    padding: 10px 15px; /* 内部填充 */
+    background-color: #007BFF; /* 按钮背景色 */
+    color: white; /* 字体颜色 */
+    border: none; /* 清除默认边框 */
+    border-radius: 4px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+    font-size: 16px; /* 字体大小 */
+}
+
+#add-btn:hover {
+    background-color: #0056bc; /* 悬停时按钮背景色变深 */
+}
+
+#todo-list {
+    list-style-type: none; /* 去除列表前面的默认符号 */
+    padding: 0; /* 清除默认填充 */
+}
+
+#todo-list li {
+    background-color: white; /* 列表项背景色 */
+    margin: 10px 0; /* 上下边距 */
+    padding: 10px; /* 内部填充 */
+    border: 1px solid #ddd; /* 边框样式 */
+    border-radius: 4px; /* 圆角边框 */
+    display: flex; /* 使用Flexbox布局 */
+    justify-content: space-between; /* 内容分散对齐 */
+}
+
+#todo-list li button {
+    background-color: #d9534f; /* 删除按钮背景色 */
+    color: white; /* 字体颜色 */
+    border: none; /* 清除默认边框 */
+    border-radius: 4px; /* 圆角边框 */
+    padding: 5px 10px; /* 内部填充 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+}
+
+#todo-list li button:hover {
+    background-color: #c9302c; /* 悬停时按钮背景色变深 */
+}
