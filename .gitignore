@@ -93,4 +93,4 @@ docker-compose.override.yml
 student-info.md
 
 # 忽略前端练习项目里面的 images 文件夹下的所有图片
-images/
+frontend/shopping-cart/images/
