@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态可折叠面板</title>
+    <style>
+        /* 基础样式 */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 折叠面板样式 */
+        .accordion {
+            margin-bottom: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .accordion-header {
+            background-color: #640256;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+        
+        .accordion-header:hover {
+            background-color: #de6ec6;
+        }
+        
+        .accordion-header::after {
+            content: '+';
+            position: absolute;
+            right: 15px;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .accordion-header.active::after {
+            content: '-';
+            transform: rotate(0deg);
+        }
+        
+        .accordion-content {
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .accordion-inner {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>动态可折叠面板</h1>
+        
+        <div class="accordion">
+            <div class="accordion-header">第一部分</div>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <p>这是第一部分的内容。点击标题可以展开或折叠这部分内容。</p >
+                    <p>jQuery会动态控制面板的展开和折叠状态。</p >
+                </div>
+            </div>
+        </div>
+        
+        <div class="accordion">
+            <div class="accordion-header">第二部分</div>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <p>这是第二部分的内容。</p >
+                    <p>每个面板都是独立的，可以单独展开或折叠。</p >
+                    <ul>
+                        <li>列表项1</li>
+                        <li>列表项2</li>
+                        <li>列表项3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="accordion">
+            <div class="accordion-header">第三部分</div>
+            <div class="accordion-content">
+                <div class="accordion-inner">
+                    <p>这是第三部分的内容。</p >
+                    <p>面板使用CSS过渡效果使展开/折叠更加平滑。</p >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入jQuery库 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // 初始化，第一个面板默认展开
+            $('.accordion:first-child .accordion-header').addClass('active');
+            $('.accordion:first-child .accordion-content').css('max-height', 
+                $('.accordion:first-child .accordion-inner').outerHeight());
+            
+            // 点击标题切换面板状态
+            $('.accordion-header').click(function() {
+                // 切换当前标题的active类
+                $(this).toggleClass('active');
+                
+                // 获取对应的内容区域
+                var content = $(this).next('.accordion-content');
+                
+                if ($(this).hasClass('active')) {
+                    // 展开内容
+                    content.css('max-height', content.find('.accordion-inner').outerHeight());
+                } else {
+                    // 折叠内容
+                    content.css('max-height', '0');
+                }
+                
+                // 关闭其他打开的面板（可选）
+                $('.accordion-header').not(this).removeClass('active');
+                $('.accordion-content').not(content).css('max-height', '0');
+            });
+            
+            // 窗口大小改变时调整打开的面板高度
+            $(window).resize(function() {
+                $('.accordion-header.active').each(function() {
+                    $(this).next('.accordion-content').css('max-height', 
+                        $(this).next('.accordion-content').find('.accordion-inner').outerHeight());
+                });
+            });
+        });
+    </script>
+</body>
+</html>
