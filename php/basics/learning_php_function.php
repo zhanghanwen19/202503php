@@ -211,3 +211,44 @@ $multiplied = array_map(fn($item) => $item * $factor, $numbers);
 print_r($multiplied); // 输出: Array ( [0] => 3 [1] => 6 [2] => 9 [3] => 12 )
 echo "<br>";
 
+function getTreeDepth($node) {
+    // 结束条件, 如果节点没有子节点, 则返回 1
+    if (!isset($node['children']) || count($node['children']) === 0) {
+        return 1;
+    }
+    $maxChildDepth = 0; // 子节点的最大深度
+    // 遍历子节点
+    foreach ($node['children'] as $child) {
+        // 递归调用 getTreeDepth 函数, 获取子节点的深度
+        $childDepth = getTreeDepth($child);
+
+        // 如果子节点的深度大于 maxChildDepth, 则更新 maxChildDepth
+        if ($childDepth > $maxChildDepth) {
+            $maxChildDepth = $childDepth;
+        }
+    }
+    // 如果节点有子节点, 则返回子节点的最大深度 + 1
+    return $maxChildDepth + 1;
+}
+
+// 示例用法
+$tree = [
+    'value' => 'A',
+    'children' => [
+        [
+            'value' => 'B',
+            'children' => [
+                [
+                    'value' => 'D',
+                    'children' => []
+                ]
+            ]
+        ],
+        [
+            'value' => 'C',
+            'children' => []
+        ]
+    ]
+];
+
+echo getTreeDepth($tree); // 输出 3
