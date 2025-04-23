@@ -88,3 +88,299 @@ echoWithBr("请求开始时间 (带微秒): " . ($_SERVER['REQUEST_TIME_FLOAT'] 
 //echoWithBr(date('Y-m-d', strtotime('-1 year')));
 echoWithBr(date("L", strtotime(date('Y-m-d', strtotime('-1 year')))));
 
+// PHP - Supplement D: 文件系统函数
+echoHr();
+$path1 = "/var/www/html/images/logo.png";
+$path2 = "C:\\Users\\John\\Documents\\report.pdf";
+$path3 = "myfile.txt"; // 只有文件名
+$path4 = "/etc/php/";    // 目录
+
+echo basename($path1); // 输出: logo.png
+echo "<br>";
+echo basename($path1, ".png"); // 输出: logo
+echo "<br>";
+echo basename($path2); // 输出: report.pdf (能处理 Windows 路径)
+echo "<br>";
+echo basename($path3); // 输出: myfile.txt
+echo "<br>";
+echo basename($path4); // 输出: php (返回最后的组件)
+
+echoHr();
+$path = "/var/www/html/images/logo.png";
+echo dirname($path);      // 输出: /var/www/html/images
+echo "<br>";
+echo dirname($path, 2); // 输出: /var/www/html (向上两级)
+echo "<br>";
+echo dirname("/var/www/html"); // 输出: /var/www
+echo "<br>";
+echo dirname("myfile.txt"); // 输出: . (当前目录)
+
+echoHr();
+$path = "/var/www/html/images/logo.PNG";
+// 获取所有信息
+$infoAll = pathinfo($path);
+echo "<pre>All info: ";
+print_r($infoAll);
+echo "</pre>";
+
+echoWithBr(DIRECTORY_SEPARATOR); // 输出: /
+
+echoHr();
+$file = './array_functions.php';
+$dir = '/Library/WebServer/Documents/cod/202503php/php/basics/';
+if (file_exists($file)) {
+    echoWithBr("文件 $file 存在。");
+} else {
+    echoWithBr("文件 $file 不存在。");
+}
+
+if (is_dir($dir)) {
+    echoWithBr("目录 $dir 存在。");
+} else {
+    echoWithBr("目录 $dir 不存在。");
+}
+
+if (is_file($file)) {
+    echoWithBr("文件 $file 是一个文件。");
+} else {
+    echoWithBr("文件 $file 不是一个文件。");
+}
+
+echoWithBr(filetype($file)); // 输出: file
+
+// 假设 /var/www/html/../logs 指向 /var/www/logs
+// $real_logs_path = realpath("/var/www/html/../logs/app.log");
+// if ($real_logs_path) {
+//     echo $real_logs_path; // 可能输出: /var/www/logs/app.log
+// } else {
+//     echo "路径无效或不存在。";
+// }
+
+// 处理相对路径 (相对于当前工作目录)
+// touch('temp.txt'); // 先创建一个文件
+// $real_temp_path = realpath("./temp.txt");
+// echo "\nReal path for ./temp.txt: " . $real_temp_path;
+// unlink('temp.txt'); // 清理
+
+//$filename = 'my_temp_file.txt';
+//file_put_contents($filename, "Hello again!"); // 创建/覆盖文件
+//
+//if (file_exists($filename)) {
+//    $size = filesize($filename);
+//    $mtime = filemtime($filename);
+//    $type = filetype($filename);
+//
+//    echo "文件: {$filename}\n";
+//    echo "大小: {$size} bytes\n";
+//    echo "类型: {$type}\n";
+//    echo "最后修改时间: " . date('Y-m-d H:i:s', $mtime) . "\n"; // 格式化时间戳
+//
+//    // 使用 stat 获取更详细信息
+//    $stats = stat($filename);
+//    if ($stats) {
+//        echo "权限 (八进制): " . decoct($stats['mode'] & 0777) . "\n"; // & 0777 只取权限位
+//        echo "所有者 UID: " . $stats['uid'] . "\n";
+//    }
+//
+//    unlink($filename); // 清理
+//}
+//
+//// 获取当前目录所在分区的可用空间
+//$free_space = disk_free_space(DIR);
+//if ($free_space !== false) {
+//    // 转换为更易读的单位 (GB)
+//    $free_gb = round($free_space / 1024 / 1024 / 1024, 2);
+//    echo "\n当前分区可用空间: {$free_gb} GB\n";
+//}
+
+//$source = 'original.txt';
+//$copyDest = 'copy_of_original.txt';
+//$renameDest = 'renamed_original.txt';
+
+//// 1. 创建源文件
+//file_put_contents($source, 'Original content.');
+//
+//// 2. 复制文件
+//if (copy($source, $copyDest)) {
+//    echo "'{$source}' 复制到 '{$copyDest}' 成功。\n";
+//} else {
+//    echo "复制失败！\n";
+//}
+//
+//// 3. 重命名/移动文件
+//if (rename($copyDest, $renameDest)) {
+//    echo "'{$copyDest}' 重命名为 '{$renameDest}' 成功。\n";
+//} else {
+//    echo "重命名失败！\n";
+//}
+//
+//// 4. 删除文件
+//if (file_exists($renameDest)) {
+//    unlink($renameDest);
+//    echo "'{$renameDest}' 已删除。\n";
+//}
+//if (file_exists($source)) {
+//    unlink($source);
+//    echo "'{$source}' 已删除。\n";
+//}
+
+echoWithBr(disk_free_space($dir)); // 返回当前磁盘上可用的空间
+echoWithBr(disk_total_space($dir)); // 返回当前磁盘的总空间
+
+$childes = scandir($dir);
+printRWithBr($childes); // 输出: 目录下的所有文件和目录
+
+echoHr();
+$userInfo = [
+    'name' => 'Elon Musk',
+    'nickname' => '马sk',
+    'age' => 30,
+    'avatar' => 'https://example.com/avatar.jpg',
+    'email' => 'test@example.com',
+    'phone' => '1234567890',
+    'address' => '123 Main St, City, Country',
+    'bio' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    'website' => 'https://example.com',
+    'social' => [
+        'facebook' => 'https://facebook.com/elonmusk',
+        'twitter' => 'https://twitter.com/elonmusk',
+        'linkedin' => 'https://linkedin.com/in/elonmusk',
+    ],
+    'skills' => [
+        'PHP',
+        'JavaScript',
+        'HTML',
+        'CSS',
+        'MySQL',
+    ],
+    'projects' => [
+        [
+            'title' => 'Project 1',
+            'description' => 'Description of project 1.',
+            'url' => 'https://example.com/project1',
+        ],
+        [
+            'title' => 'Project 2',
+            'description' => 'Description of project 2.',
+            'url' => 'https://example.com/project2',
+        ],
+    ],
+    'education' => [
+        [
+            'degree' => 'Bachelor of Science in Computer Science',
+            'institution' => 'University of Example',
+            'year' => 2015,
+        ],
+        [
+            'degree' => 'Master of Science in Software Engineering',
+            'institution' => 'Example University',
+            'year' => 2017,
+        ],
+    ],
+];
+
+// 使用 json_encode() 将数组转换为 JSON 字符串
+echoWithBr(json_encode($userInfo));
+$jsonString = json_encode($userInfo, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+echoWithBr("<pre>$jsonString</pre>");
+
+$userInfoJson = '{"name":"Elon Musk","nickname":"\u9a6c\u4e66\u8bb0","age":30,"avatar":"https:\/\/example.com\/avatar.jpg","email":"test@example.com","phone":"1234567890","address":"123 Main St, City, Country","bio":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","website":"https:\/\/example.com","social":{"facebook":"https:\/\/facebook.com\/elonmusk","twitter":"https:\/\/twitter.com\/elonmusk","linkedin":"https:\/\/linkedin.com\/in\/elonmusk"},"skills":["PHP","JavaScript","HTML","CSS","MySQL"],"projects":[{"title":"Project 1","description":"Description of project 1.","url":"https:\/\/example.com\/project1"},{"title":"Project 2","description":"Description of project 2.","url":"https:\/\/example.com\/project2"}],"education":[{"degree":"Bachelor of Science in Computer Science","institution":"University of Example","year":2015},{"degree":"Master of Science in Software Engineering","institution":"Example University","year":2017}]}';
+// 使用 json_decode() 将 JSON 字符串转换为 PHP 数组
+$userInfoArray = json_decode($userInfoJson, true);
+echo "<pre>";
+printRWithBr($userInfoArray); // 输出: 数组
+echo "</pre>";
+echoWithBr($userInfoArray['nickname']); // 输出: 马书记
+
+//使用 JSON_THROW_ON_ERROR (PHP 7.3+, 推荐):
+// 尝试编码一个包含无效 UTF-8 字节的字符串
+$invalid_utf8 = "\xB1\x31"; // 无效的 UTF-8 序列
+
+try {
+    // 使用 JSON_THROW_ON_ERROR 标志
+    $json = json_encode($invalid_utf8, JSON_THROW_ON_ERROR);
+    echo "编码成功: " . $json; // 这句不会执行
+} catch (JsonException $e) {
+    // 捕获 JsonException
+    echo "JSON 编码错误 (使用异常): " . $e->getMessage(); // 输出类似: Malformed UTF-8 characters, possibly incorrectly encoded
+}
+
+$json_string = '{
+    "name": "Alice",
+    "age": 30,
+    "city": "New York",
+    "hobbies": ["reading", "hiking"],
+    "contact": null
+}';
+
+// 1. 解码为对象 (默认行为)
+$obj = json_decode($json_string);
+
+if ($obj !== null) { // 基本检查 (不能完全排除解码了 "null" 的情况)
+    echo "解码为对象:<br>";
+    echo "Name: " . htmlspecialchars($obj->name) . "<br>"; // 使用 -> 访问对象属性
+    echo "Age: " . $obj->age . "<br>";
+    echo "First hobby: " . htmlspecialchars($obj->hobbies[0]) . "<br>";
+    echo "Contact: "; var_dump($obj->contact); // 输出: NULL
+} else {
+    echo "JSON 解码失败 (或解码结果是 null)。错误: " . json_last_error_msg();
+}
+echo "<hr>";
+
+// 2. 解码为关联数组 (常用方式)
+$assoc_array = json_decode($json_string, true); // 第二个参数设为 true
+
+if ($assoc_array !== null) {
+    echo "解码为关联数组:<br>";
+    echo "Name: " . htmlspecialchars($assoc_array['name']) . "<br>"; // 使用 ['key'] 访问数组元素
+    echo "Age: " . $assoc_array['age'] . "<br>";
+    echo "First hobby: " . htmlspecialchars($assoc_array['hobbies'][0]) . "<br>";
+    echo "Contact: "; var_dump($assoc_array['contact']); // 输出: NULL
+} else {
+    echo "JSON 解码失败 (或解码结果是 null)。错误: " . json_last_error_msg();
+}
+echo "<hr>";
+
+// 3. 解码 JSON 数组
+$json_array = '["apple", "banana", 123]';
+$php_array = json_decode($json_array); // 默认解码为索引数组
+echo "解码 JSON 数组:<br>";
+print_r($php_array); // 输出: Array ( [0] => apple [1] => banana [2] => 123 )
+echo "<hr>";
+
+// 4. 解码 JSON null
+$json_null = 'null';
+$php_null = json_decode($json_null);
+echo "解码 JSON null:<br>";
+var_dump($php_null); // 输出: NULL
+// 此时如果不用异常处理，需要检查 json_last_error()
+if (json_last_error() !== JSON_ERROR_NONE) {
+    echo "解码 'null' 时发生错误: " . json_last_error_msg();
+} else {
+    echo "'null' 字符串成功解码为 PHP NULL。";
+}
+$invalid_json = '{"name": "Alice", "age": 30,}'; // 注意最后多余的逗号，这是无效 JSON
+
+try {
+    // 使用 JSON_THROW_ON_ERROR 标志，并解码为关联数组
+    $data = json_decode($invalid_json, true, 512, JSON_THROW_ON_ERROR);
+    echo "解码成功!"; // 不会执行
+    print_r($data);
+} catch (JsonException $e) {
+    // 捕获 JsonException
+    echo "JSON 解码错误 (使用异常): " . $e->getMessage(); // 输出类似: Syntax error
+}
+
+//错误处理
+//使用 JSON_THROW_ON_ERROR (PHP 7.3+, 推荐):
+$invalid_json = '{"name": "Alice", "age": 30,}'; // 注意最后多余的逗号，这是无效 JSON
+
+try {
+    // 使用 JSON_THROW_ON_ERROR 标志，并解码为关联数组
+    $data = json_decode($invalid_json, true, 512, JSON_THROW_ON_ERROR);
+    echo "解码成功!"; // 不会执行
+    print_r($data);
+} catch (JsonException $e) {
+    // 捕获 JsonException
+    echo "JSON 解码错误 (使用异常): " . $e->getMessage(); // 输出类似: Syntax error
+}
