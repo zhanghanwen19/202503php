@@ -360,3 +360,19 @@ printRWithBr($flipped); // 输出: Array ( [1] => a [2] => b [3] => c )
 printRWithBr(array_flip($scores)); // 输出: Array ( [85] => Alice [92] => Bob [78] => Charlie ) (分数作为键)
 $numbers = [3, 1, 4, 1, 5, 9];
 printRWithBr(array_reverse($numbers)); // 输出: Array ( [0] => 9 [1] => 5 [2] => 4 [3] => 3 [4] => 1 [5] => 1 ) (键被重置)
+
+function renderTemplate(string $template, array $variables): string {
+    // 将变量键名包裹在 `{{` 和 `}}` 中，以便替换
+    $replacements = [];
+    foreach ($variables as $key => $value) {
+        $replacements["{{ $key }}"] = $value;
+    }
+    return strtr($template, $replacements);
+}
+
+// 示例用法
+$template = "The next F1 race will be in {{ city }} on {{ date }}.";
+$variables = ['city' => 'Melbourne', 'date' => '2022-04-08'];
+
+echo renderTemplate($template, $variables);
+// 输出：The next F1 race will be in Melbourne on 2022-04-08.
