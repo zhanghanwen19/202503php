@@ -80,7 +80,7 @@ try {
 //    $user_email = "[移除了电子邮件地址]"; // 假设这是来自用户输入
 //
 //// 1. 准备 SQL 语句
-//    $sql = "SELECT user_id, name FROM users WHERE email = :email";
+//    $sql = "SELECT id, name FROM students;
 //    $stmt = $pdo->prepare($sql);
 //
 //// 2. 执行 (直接在 execute 中传递数组)
