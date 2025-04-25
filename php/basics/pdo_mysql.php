@@ -48,7 +48,7 @@ echoHr();
 // --- 使用 query() 执行 SELECT ---
 try {
     // 这个查询是固定的，没有用户输入，所以用 query() 相对安全
-    $sql = "SELECT id FROM students";
+    $sql = "SELECT id, name, age, grade FROM students";
     $stmt = $pdo->query($sql); // 返回 PDOStatement 对象
 
     echo "<h4>Students of A class:</h4>";
