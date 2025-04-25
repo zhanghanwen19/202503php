@@ -59,7 +59,10 @@ setcookie($cookie_name, $cookie_value, [
 */
 //<!DOCTYPE html>
 //<html>
-//<head><title>设置 Cookie</title></head>
+//<head>
+//  <title>设置 Cookie</title>
+//  <meta charset="UTF-8">
+//</head>
 //<body>
 //<p>Cookie "theme" 已设置 (或尝试设置)。</p>
 //<p>下次访问时，浏览器会自动带上这个 Cookie。</p>
