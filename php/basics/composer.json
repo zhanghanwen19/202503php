@@ -1,8 +1,8 @@
 {
-    "name": "lustormstout/basics",
+    "name": "zhanghanwen/basics",
     "autoload": {
         "psr-4": {
-            "Lustormstout\\Basics\\": "src/"
+            "zhanghanwen\\Basics\\": "src/"
         }
     },
     "authors": [
