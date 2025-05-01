@@ -425,23 +425,18 @@
         <div class="about-content">
             <div class="about-text">
                 <h3>我们的故事</h3>
-                <p>
-                    公司名称成立于2010年，是一家专注于[行业领域]的高新技术企业。经过十余年的快速发展，我们已经成长为行业内的领先企业，为全球超过1000家客户提供优质的产品和服务。</p>
-                <p>
-                    公司总部位于[城市名称]，在全国设有5个分支机构，员工总数超过500人，其中研发人员占比30%。我们始终坚持"创新、诚信、共赢"的核心价值观，致力于为客户创造最大价值。</p>
-                <p>
-                    2020年，公司成功在[交易所名称]上市(股票代码：XXXXXX)，标志着公司发展进入新阶段。未来，我们将继续深耕[行业领域]，推动行业技术进步，为社会可持续发展贡献力量。</p>
+                <p>公司名称成立于2010年，是一家专注于[行业领域]的高新技术企业。经过十余年的快速发展，我们已经成长为行业内的领先企业，为全球超过1000家客户提供优质的产品和服务。</p>
+                <p>公司总部位于[城市名称]，在全国设有5个分支机构，员工总数超过500人，其中研发人员占比30%。我们始终坚持"创新、诚信、共赢"的核心价值观，致力于为客户创造最大价值。</p>
+                <p>2020年，公司成功在[交易所名称]上市(股票代码：XXXXXX)，标志着公司发展进入新阶段。未来，我们将继续深耕[行业领域]，推动行业技术进步，为社会可持续发展贡献力量。</p>
             </div>
             <div class="about-image">
-                <img
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                     alt="公司办公环境">
             </div>
         </div>
         <div class="about-content reverse">
             <div class="about-image">
-                <img
-                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
                     alt="公司发展历程">
             </div>
             <div class="about-text">
@@ -498,8 +493,7 @@
         <div class="team-grid">
             <div class="team-member">
                 <div class="member-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
                         alt="CEO">
                 </div>
                 <div class="member-info">
@@ -509,8 +503,7 @@
             </div>
             <div class="team-member">
                 <div class="member-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
                         alt="CTO">
                 </div>
                 <div class="member-info">
@@ -520,8 +513,7 @@
             </div>
             <div class="team-member">
                 <div class="member-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
                         alt="CFO">
                 </div>
                 <div class="member-info">
@@ -531,8 +523,7 @@
             </div>
             <div class="team-member">
                 <div class="member-image">
-                    <img
-                        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
                         alt="COO">
                 </div>
                 <div class="member-info">
@@ -573,12 +564,12 @@
             </div>
         </div>
         <div class="copyright">
-            <p> 2025 公司名称 版权所有 | 备案号：XXXXXX号</p>
+            <p>2025 公司名称 版权所有 | 备案号：XXXXXX号</p>
         </div>
     </div>
 </footer>
 
 <!-- Font Awesome 图标库 -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+{{--<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>--}}
 </body>
 </html>
