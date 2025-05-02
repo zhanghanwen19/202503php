@@ -392,7 +392,7 @@
     <div class="container">
         <nav>
             <div class="logo">
-                <img src="" alt="公司Logo">
+                <img src="http://localhost:8000/images/01.jpg" alt="公司Logo">
                 <span>ZHW-PHP-Practice</span>
             </div>
             <ul class="nav-links">
@@ -431,13 +431,13 @@
             </div>
             <div class="about-image">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                    alt="公司办公环境">
+                     alt="公司办公环境">
             </div>
         </div>
         <div class="about-content reverse">
             <div class="about-image">
                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                    alt="公司发展历程">
+                     alt="公司发展历程">
             </div>
             <div class="about-text">
                 <h3>发展历程</h3>
@@ -494,7 +494,7 @@
             <div class="team-member">
                 <div class="member-image">
                     <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="CEO">
+                         alt="CEO">
                 </div>
                 <div class="member-info">
                     <h3>张明</h3>
@@ -504,7 +504,7 @@
             <div class="team-member">
                 <div class="member-image">
                     <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="CTO">
+                         alt="CTO">
                 </div>
                 <div class="member-info">
                     <h3>李华</h3>
@@ -514,7 +514,7 @@
             <div class="team-member">
                 <div class="member-image">
                     <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="CFO">
+                         alt="CFO">
                 </div>
                 <div class="member-info">
                     <h3>王芳</h3>
@@ -524,7 +524,7 @@
             <div class="team-member">
                 <div class="member-image">
                     <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
-                        alt="COO">
+                         alt="COO">
                 </div>
                 <div class="member-info">
                     <h3>刘强</h3>
@@ -573,3 +573,4 @@
 {{--<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>--}}
 </body>
 </html>
+
