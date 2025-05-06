@@ -35,3 +35,5 @@ Route::resource('categories', CategoriesController::class);
 //  GET|HEAD   categories/{category}/edit ...... categories.edit › CategoriesController@edit
 
 Route::resource('products', ProductsController::class);
+
+Route::get('/test', [\App\Http\Controllers\TestController::class, 'index'])->name('test');
