@@ -37,3 +37,7 @@ Route::resource('categories', CategoriesController::class);
 Route::resource('products', ProductsController::class);
 
 Route::get('/test', [\App\Http\Controllers\TestController::class, 'index'])->name('test');
+
+Route::resource('posts', PostsController::class);
+Route::resource('authors', AuthorsController::class);
+Route::resource('tags', TagsController::class);
