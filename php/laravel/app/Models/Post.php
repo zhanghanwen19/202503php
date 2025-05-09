@@ -10,35 +10,27 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Carbon;
 
 /**
- * 
- *
  * @method static PostFactory factory($count = null, $state = [])
  * @method static Builder<static>|Post newModelQuery()
  * @method static Builder<static>|Post newQuery()
  * @method static Builder<static>|Post query()
- * @property int $id
- * @property string $title 標題
- * @property string $content 內容
- * @property int $author_id
- * @property string $slug 網址
- * @property int $status 狀態 0:草稿 1:發佈 2:隱藏
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Author|null $author
- * @property-read \App\Models\Metadata|null $metadata
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Tag> $tags
- * @property-read int|null $tags_count
- * @method static Builder<static>|Post whereAuthorId($value)
- * @method static Builder<static>|Post whereContent($value)
- * @method static Builder<static>|Post whereCreatedAt($value)
- * @method static Builder<static>|Post whereId($value)
- * @method static Builder<static>|Post whereSlug($value)
- * @method static Builder<static>|Post whereStatus($value)
- * @method static Builder<static>|Post whereTitle($value)
- * @method static Builder<static>|Post whereUpdatedAt($value)
  * @mixin Eloquent
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $content
+ * @property int $author_id
+ * @property string $slug
+ * @property string $status
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ *
+ * @property-read Author $author
+ * @property-read Metadata|null $metadata
+ * @property-read Tag[] $tags
  */
 class Post extends Model
 {
